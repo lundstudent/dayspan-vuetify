@@ -14,13 +14,13 @@
        </v-icon>
      </v-toolbar-title>
 
-     <v-btn
-       v-if="!details.readonly"
-       color="secondary"
-       small absolute bottom left fab icon
-       @click="edit">
-       <v-icon>edit</v-icon>
-     </v-btn>
+      <v-btn
+        v-if="!details.readonly && editingAllowed"
+        color="secondary"
+        small absolute bottom left fab icon
+        @click="edit">
+        <v-icon>edit</v-icon>
+      </v-btn>
 
      <slot name="eventPopoverToolbarLeft" v-bind="slotData"></slot>
 
@@ -164,6 +164,12 @@ export default {
 
   props:
   {
+    editingAllowed:
+    {
+      required: false,
+      type: Boolean
+    },
+
     calendarEvent:
     {
       required: true,
