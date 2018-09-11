@@ -28,7 +28,7 @@
 
      <slot name="eventPopoverToolbarRight" v-bind="slotData"></slot>
 
-     <slot name="eventPopoverToolbarActions" v-bind="slotData">
+     <slot v-if="editingAllowed" name="eventPopoverToolbarActions" v-bind="slotData">
 
        <v-tooltip bottom>
 
